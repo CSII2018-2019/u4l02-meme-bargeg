@@ -37,9 +37,9 @@ public class U4L02Code extends JFrame {
 		add(imgPanel, BorderLayout.LINE_START);
 		
 		//grayscale image panel
-		//ImagePanel rgbImg = new ImagePanel(FILE_NAME);
-		//rgbImg.rgbGreenEffect();
-		//add(rgbImg,BorderLayout.LINE_END);
+		ImagePanel rgbImg = new ImagePanel(FILE_NAME);
+		rgbImg.rgbGreenEffect();
+		add(rgbImg,BorderLayout.LINE_END);
 
 	}
 	
