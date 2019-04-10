@@ -38,7 +38,7 @@ public class U4L02Code extends JFrame {
 		
 		//grayscale image panel
 		ImagePanel rgbImg = new ImagePanel(FILE_NAME);
-		rgbImg.rgbGreenEffect();
+		rgbImg.conspiracyFilter();
 		add(rgbImg,BorderLayout.LINE_END);
 
 	}
