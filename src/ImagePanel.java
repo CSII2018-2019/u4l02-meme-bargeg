@@ -17,9 +17,11 @@ public class ImagePanel extends JPanel {
 	private int height;
 	
 	BufferedImage image = null;
+	BufferedImage image2 = null;
 	
 	public ImagePanel(String fn){
 		image = readImageFile(this, fn);
+		image2 = readImageFile(this,fn);
 		width = image.getWidth();
 		height = image.getHeight();
 	}
@@ -47,6 +49,7 @@ public class ImagePanel extends JPanel {
 		return size;
 	}
 	public void convertToGrayscale() {
+		reset();
 		for (int x = 0; x < width; x++) {
 			for (int y = 0; y < height; y++) {
 				//get value for one pixel
@@ -64,8 +67,9 @@ public class ImagePanel extends JPanel {
 				p = (a<<24)| (avg<<16) | (avg<<8) | (avg<<0);
 				image.setRGB(x, y, p);
 			}
-		} }
+		} repaint(); }
 		public void rgbRedEffect() {
+			reset();
 			for (int x = 0; x < width; x++) {
 				for (int y = 0; y < height; y++) {
 					//get value for one pixel
@@ -80,7 +84,7 @@ public class ImagePanel extends JPanel {
 					//reset our pixel
 					p = (a<<24)| (r<<16) | (g<<8) | (b<<0);
 					image.setRGB(x, y, p);
-				} }
+				} }repaint(); 
 			
 		
 		
@@ -104,7 +108,7 @@ public class ImagePanel extends JPanel {
 	
 
 
-}
+}repaint(); 
 		}
 			public void rgbGreenEffect() {
 				for (int x = 0; x < width; x++) {
@@ -127,9 +131,10 @@ public class ImagePanel extends JPanel {
 	
 
 
-}
+}repaint(); 
 		}
 			public void convertToSepia() {
+				reset();
 				for (int x = 0; x < width; x++) {
 					for (int y = 0; y < height; y++) {
 						//get value for one pixel
@@ -167,8 +172,9 @@ public class ImagePanel extends JPanel {
 
 
 
-} }
-			public void conspiracyFilter(Component rgbImg) {
+} repaint(); }
+			public void conspiracyFilter() {
+				reset();
 				for (int x = 0; x < width; x++) {
 					for (int y = 0; y < height; y++) {
 						//get value for one pixel
@@ -196,7 +202,7 @@ public class ImagePanel extends JPanel {
 						}
 						p = (a<<24)| (newR<<16) | (newG<<8) | (newB<<0);
 						image.setRGB(x, y, p);
-						add(rgbImg,BorderLayout.LINE_END);
+						repaint(); 
 						
 				
 			}
@@ -211,8 +217,16 @@ public class ImagePanel extends JPanel {
 
 
 
-
-
-} 
+			public void reset() {
+				for (int x = 0; x < width; x++) {
+					for (int y = 0; y < height; y++) {
+						int p = image2.getRGB(x,y);
+						image.setRGB(x, y, p);
+					}
+			}
+			
+				repaint();
+			} 
+}
 		
 

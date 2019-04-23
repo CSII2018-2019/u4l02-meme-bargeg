@@ -32,6 +32,7 @@ public class U4L02Code extends JFrame {
 		ImagePanel rgbImg = new ImagePanel(FILE_NAME);
 		ImagePanel imgPanel = new ImagePanel(FILE_NAME);
 		add(imgPanel, BorderLayout.LINE_START);
+		add(rgbImg, BorderLayout.LINE_END);
 		JPanel titlePanel = new JPanel();
 		titlePanel.setBackground(Color.BLACK);
 		JLabel titleLabel = new JLabel("Walking into a test you didn't study for like");
@@ -60,7 +61,7 @@ public class U4L02Code extends JFrame {
 		sepia.setFont(font);
 		conspiracyButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-				rgbImg.conspiracyFilter(rgbImg);
+				rgbImg.conspiracyFilter();
 			}
 		});
 		grayscale.addActionListener(new ActionListener() {
@@ -92,8 +93,7 @@ public class U4L02Code extends JFrame {
 		//grayscale image panel
 
 	
-	
-	
+
 	
 	public static void main(String[] args) {
 		try {
