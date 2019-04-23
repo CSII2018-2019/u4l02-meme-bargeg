@@ -25,10 +25,11 @@ public class U4L02Code extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-	}
+	} 
 	
 	public void initGUI(){
 		//title Panel
+		ImagePanel rgbImg = new ImagePanel(FILE_NAME);
 		ImagePanel imgPanel = new ImagePanel(FILE_NAME);
 		add(imgPanel, BorderLayout.LINE_START);
 		JPanel titlePanel = new JPanel();
@@ -59,24 +60,22 @@ public class U4L02Code extends JFrame {
 		sepia.setFont(font);
 		conspiracyButton.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-				ImagePanel rgbImg = new ImagePanel(FILE_NAME);
-				rgbImg.conspiracyFilter();
-				add(rgbImg,BorderLayout.LINE_END);
+				rgbImg.conspiracyFilter(rgbImg);
 			}
+		});
+		grayscale.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-				ImagePanel rgbImg = new ImagePanel(FILE_NAME);
-				rgbImg.conspiracyFilter();
-				add(rgbImg,BorderLayout.LINE_END);
+				rgbImg.convertToGrayscale();
 			}
+		});
+		rgbRed.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-				ImagePanel rgbImg = new ImagePanel(FILE_NAME);
-				rgbImg.conspiracyFilter();
-				add(rgbImg,BorderLayout.LINE_END);
+				rgbImg.rgbRedEffect();
 			}
+		});
+		sepia.addActionListener(new ActionListener() {
 			public void actionPerformed (ActionEvent e) {
-				ImagePanel rgbImg = new ImagePanel(FILE_NAME);
-				rgbImg.conspiracyFilter();
-				add(rgbImg,BorderLayout.LINE_END);
+				rgbImg.convertToSepia();
 			}
 		}); 
  
@@ -86,6 +85,7 @@ public class U4L02Code extends JFrame {
 		downButtonPanel.add(rgbRed);
 		downButtonPanel.add(sepia);
 	}
+	
 		
 		//image panel
 		

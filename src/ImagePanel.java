@@ -1,3 +1,5 @@
+import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 
 import java.awt.Graphics;
@@ -166,7 +168,7 @@ public class ImagePanel extends JPanel {
 
 
 } }
-			public void conspiracyFilter() {
+			public void conspiracyFilter(Component rgbImg) {
 				for (int x = 0; x < width; x++) {
 					for (int y = 0; y < height; y++) {
 						//get value for one pixel
@@ -194,6 +196,7 @@ public class ImagePanel extends JPanel {
 						}
 						p = (a<<24)| (newR<<16) | (newG<<8) | (newB<<0);
 						image.setRGB(x, y, p);
+						add(rgbImg,BorderLayout.LINE_END);
 						
 				
 			}
